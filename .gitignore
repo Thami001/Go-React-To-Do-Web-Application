@@ -100,3 +100,4 @@ coverage/
 InstalledFiles
 pkg/
 .rvmrc
+.env
