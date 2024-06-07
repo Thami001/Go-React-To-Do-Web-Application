@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/gofiber/fiber/v2/middleware/cors"
 	"log"
 	"os"
 
@@ -55,10 +54,10 @@ func main() {
 
 	app := fiber.New()
 
-	app.Use(cors.New(cors.Config{
+	/*app.Use(cors.New(cors.Config{
 		AllowOrigins: "http://localhost:5173",
 		AllowHeaders: "Origin,Content-Type,Accept",
-	}))
+	}))*/
 
 	app.Get("/api/todos", getTodos)
 	app.Post("/api/todos", createTodo)
@@ -69,7 +68,7 @@ func main() {
 	if port == "" {
 		port = "5000"
 	}
-
+	
 	if os.Getenv("ENV") == "production" {
 		app.Static("/", "./client/dist")
 	}
